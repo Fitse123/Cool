@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitse's Portfolio - UI/UX Designer</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="form-status" style="display: none; color: green; margin-top: 10px;">
+    <!-- This message will be replaced dynamically -->
+  </div>
+  
+  <script>
+    const form = document.querySelector('form');
+    const formStatus = document.getElementById("contact");
+  
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+  
+      if (response.ok) {
+        formStatus.innerHTML = 'Thank you! Your message has been sent successfully.'; // Custom message
+        formStatus.style.display = 'block';
+        form.reset();
+      } else {
+        formStatus.innerHTML = 'Oops! Something went wrong. Please try again.'; // Custom error message
+        formStatus.style.color = 'red'; // Change color for errors
+        formStatus.style.display = 'block';
+      }
+    });
+  </script>
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="container">
+      <h1>Fitsum Belay</h1>
+      <p>UI/UX Designer | Student | Creating Intuitive Digital Experiences</p>
+      <a href="#portfolio" class="btn">View My Work</a>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <img src="Me.jpg" alt="fitsum" class="profile-pic">
+        <p>
+          Hi, I'm Fitsum, a passionate UI/UX designer and software engineering student with a love for solving problems through design and coding. 
+          I specialize in wireframing, prototyping, and user research, and I’m proficient in tools like Figma, Adobe XD. 
+          I enjoy creating intuitive and user-friendly digital experiences.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <h2>Experience</h2>
+      <div class="experience-item">
+        <h3>UI/UX Design Intern</h3>
+        <p><strong>DMU</strong> | 2025</p>
+        <ul>
+          <li>Redesigned Some company’s app.</li>
+          <li>Conducted user research and created wireframes and prototypes using Figma.</li>
+        </ul>
+      </div>
+      <div class="experience-item">
+        <h3>Freelance Designer</h3>
+        
+        <ul>
+          <li>Designed websites and mobile apps for small businesses.</li>
+          <li>Collaborated with clients to understand their needs and deliver tailored solutions.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio">
+    <div class="container">
+      <h2>Portfolio</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="project1.jpg" alt="Project 1">
+          <h3>E-commerce App Redesign</h3>
+        </div>
+        <div class="portfolio-item">
+          <img src="project2.jpg" alt="Project 2">
+          <h3>Travel Booking Website</h3>
+          <p>Designed a responsive website for a travel agency.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <div class="skill-item">
+          <h3>UI/UX Design</h3>
+          <p>Figma, Adobe XD, Sketch</p>
+        </div>
+        <div class="skill-item">
+          <h3>web Development</h3>
+          <p>HTML, CSS, JavaScript</p>
+        </div>
+        <div class="skill-item">
+          <h3>App Development</h3>
+          <p>Flutter</p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <form action="https://formspree.io/f/xpwqbeoa" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Fitsum Belay.</p>
+      <div class="social-links">
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+        <a href="https://behance.net/yourprofile" target="_blank">Behance</a>
+        <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
